@@ -1,0 +1,102 @@
+.frontpage{
+
+	h1{
+		text-align:center;
+		font-size:rem-calc(36);
+		text-transform: uppercase;
+		margin:0;
+		margin-top:rem-calc(40);
+		padding:rem-calc(20 0);
+		background:darken(map-get($istvanffy-palette, secondary), 5%);
+		color: darken(map-get($istvanffy-palette, secondary), 35%);
+		font-weight: 400;
+		//background:map-get($istvanffy-palette, primary);
+	}
+	blockquote{
+		font-size:rem-calc(28);
+		text-align:center;
+		border:none;
+		color: darken(map-get($istvanffy-palette, secondary), 45%);
+		font-style:italic;
+		margin:rem-calc(40);
+
+	}
+}
+#istvannfirol{
+	.panel{
+		margin:rem-calc(40 0);
+		position: relative;
+
+		img{
+			width:100%;
+		}
+
+		strong{
+			font-size:rem-calc(26);
+			display: inline-block;
+			//margin-top:rem-calc(60);
+			color: darken(map-get($istvanffy-palette, secondary), 35%);
+		}
+		&.wide{
+			background: $white;
+            padding:0;
+            
+			&:before{
+				display: block;
+				content: "";
+				width: 80%;
+				margin: rem-calc(40) auto;
+				border-bottom: 1px solid #9c8777;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
+			}
+
+			img{
+				width:50%;
+				float:right;
+			}
+			.panel-heading, .panel-text{
+				float:left;
+				width:50%;
+				@extend .clearfix;
+				ul{
+					text-align:left;
+				}
+
+			}
+			.panel-text{
+				padding:rem-calc(0 45);
+			}
+			&:nth-child(2n+1){
+				img{float:left;}
+				.panel-heading, .panel-text{float:right};
+			}
+		}
+		.panel-text, .panel-heading{
+			padding:rem-calc(15);
+			background:white;
+			display:block;
+			text-align: center;
+		}
+		.panel-heading{
+			font-size:rem-calc(24);
+			padding-top:rem-calc(30);
+			color: darken(map-get($istvanffy-palette, secondary), 35%);
+			text-transform: uppercase;
+			hr{
+				width: 80%;
+				margin:0 auto;
+				margin-top:rem-calc(20);
+			}
+		}
+		.panel-text{
+			hr{
+				width: 80%;
+				margin:0 auto;
+				margin:rem-calc(30) auto;
+			}
+		}
+	}
+}
