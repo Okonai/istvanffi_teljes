@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <main class="row">
     <aside class="sidebar">
-        <?php do_action( 'woocommerce_sidebar' ); ?>
+        <?php woocommerce_mini_cart() ?>
     </aside>
     <div id="product-single">
         <div class="product-image">
