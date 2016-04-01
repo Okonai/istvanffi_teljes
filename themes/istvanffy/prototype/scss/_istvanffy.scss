@@ -86,3 +86,17 @@ footer{
         }
     }
 }
+.breadcrumbs{
+    @extend .small-12;
+    @extend .large-7;
+    float:left;
+}
+aside.sidebar + div{
+    @extend .large-9;
+    float:left;
+}
+aside.sidebar{
+    @extend .large-3;
+    @extend .show-for-large;
+    float:right;
+}
