@@ -6,9 +6,9 @@ function wptuts_scripts_basic()
 
     wp_deregister_script('jquery');
 	
-    wp_register_script( 'jquery', get_template_directory_uri() . '/prototype/bower_components/jquery/dist/jquery.js', [] , 1, true  );
-    wp_register_script( 'foundation', get_template_directory_uri() . '/prototype/bower_components/foundation-sites/dist/foundation.js', [] , 1, true );
-	wp_register_script( 'app', get_template_directory_uri() . '/prototype/js/app.js', [] , 1, true );
+    wp_register_script( 'jquery', get_template_directory_uri() . '/prototype/bower_components/jquery/dist/jquery.js', array() , 1, true  );
+    wp_register_script( 'foundation', get_template_directory_uri() . '/prototype/bower_components/foundation-sites/dist/foundation.js', array() , 1, true );
+	wp_register_script( 'app', get_template_directory_uri() . '/prototype/js/app.js', array() , 1, true );
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'foundation' );
     wp_enqueue_script( 'app' );
