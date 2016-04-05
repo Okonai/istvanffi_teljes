@@ -50,6 +50,15 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 ?>
 <li class="single-product-list-item">
     <figure>
+        <div class="thumb">
+            <?php woocommerce_template_loop_product_thumbnail() ?>
+        </div>
+        
+        <header>
+            <?php woocommerce_template_loop_product_title() ?>
+        </header>
+    </figure>
+    <?php /*<figure>
         <?php woocommerce_template_loop_product_thumbnail() ?>
         <figcaption class="product-list-info">
             <header>
@@ -68,5 +77,6 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                 <?php woocommerce_template_single_add_to_cart() ?>
             </div>            
         </figcaption>
+        ?>
     </figure>
 </li>
