@@ -97,7 +97,7 @@
             figure{
                 @extend .clearfix;
                 margin:0;               
-                background: darken(map-get($istvanffy-palette, secondary), 5%);
+                //background: darken(map-get($istvanffy-palette, secondary), 5%);
 
                 header{
                     width:100%;
@@ -142,7 +142,13 @@
                     
                 }
             }
-        } 
+        }
+        .product-wide{
+            display:none;
+            &.open{
+                display:block;
+            }
+        }
     } 
 }
 .sidebar{

@@ -49,7 +49,9 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 }
 ?>
 <li class="single-product-list-item">
-    <figure>
+    <figure 
+        data-toggle="list-add-to-cart-<?php echo $woocommerce_loop['loop'] ?>"
+    >
         <div class="thumb">
             <?php woocommerce_template_loop_product_thumbnail() ?>
         </div>
@@ -58,7 +60,7 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
             <?php woocommerce_template_loop_product_title() ?>
         </header>
     </figure>
-    <?php /*<figure>
+    <div class="product-wide" id="list-add-to-cart-<?php echo $woocommerce_loop['loop'] ?>" data-toggler=".open">
         <?php woocommerce_template_loop_product_thumbnail() ?>
         <figcaption class="product-list-info">
             <header>
@@ -77,6 +79,6 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                 <?php woocommerce_template_single_add_to_cart() ?>
             </div>            
         </figcaption>
-        ?>
+
     </figure>
 </li>
