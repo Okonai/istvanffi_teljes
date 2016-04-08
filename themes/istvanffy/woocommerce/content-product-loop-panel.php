@@ -62,7 +62,7 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
         <a class="hollow button hide-for-large visit-product-page" href="<?php echo $product->get_permalink()?>">Tovább a termékre</a>
 
         <div class="list-add-to-cart-wrapper" id="list-add-to-cart-<?php echo $woocommerce_loop['loop'] ?>" data-toggler=".open">
-            <?php woocommerce_template_single_add_to_cart() ?>
+            <?php //woocommerce_template_single_add_to_cart() ?>
         </div>            
     </figcaption>
 </div>
