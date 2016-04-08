@@ -48,37 +48,14 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 	$classes[] = 'last';
 }
 ?>
-<li class="single-product-list-item">
+
     <figure 
         data-toggle="list-add-to-cart-<?php echo $woocommerce_loop['loop'] ?>"
     >
         <div class="thumb">
             <?php woocommerce_template_loop_product_thumbnail() ?>
-        </div>
-        
+        </div>        
         <header>
             <?php woocommerce_template_loop_product_title() ?>
         </header>
-    </figure>
-  
-</li>
-<div class="product-wide" id="list-add-to-cart-<?php echo $woocommerce_loop['loop'] ?>" data-toggler=".open">
-    <?php woocommerce_template_loop_product_thumbnail() ?>
-    <figcaption class="product-list-info">
-        <header>
-        <?php woocommerce_template_loop_product_title() ?>
-        </header>
-
-        <button class="hollow button show-for-large open-add-to-cart" data-toggle="list-add-to-cart-<?php echo $woocommerce_loop['loop'] ?>">Kosárba</button>
-        <a class="hollow button show-for-large visit-product-page" href="<?php echo $product->get_permalink()?>">Tovább a termékre</a>
-
-        <?php woocommerce_template_single_excerpt() ?>
-
-        <button class="hollow button hide-for-large open-add-to-cart" data-toggle="list-add-to-cart-<?php echo $woocommerce_loop['loop'] ?>">Kosárba</button>
-        <a class="hollow button hide-for-large visit-product-page" href="<?php echo $product->get_permalink()?>">Tovább a termékre</a>
-
-        <div class="list-add-to-cart-wrapper" id="list-add-to-cart-<?php echo $woocommerce_loop['loop'] ?>" data-toggler=".open">
-            <?php woocommerce_template_single_add_to_cart() ?>
-        </div>            
-    </figcaption>
-</div>
+    </figure>  

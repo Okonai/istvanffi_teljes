@@ -20,42 +20,57 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
+
 <main class="row">
+    <?php if ( ! WC()->cart->is_empty() ) : ?>   
     <aside class="sidebar">
         <?php woocommerce_mini_cart() ?>
     </aside>
+    <?php endif; ?>
     <div id="product-list">
         <?php wc_print_notices() ?>
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
 		<?php endif; ?>
         <?php woocommerce_breadcrumb(); ?>
-		<?php
-			/**
-			 * woocommerce_archive_description hook.
-			 *
-			 * @hooked woocommerce_taxonomy_archive_description - 10
-			 * @hooked woocommerce_product_archive_description - 10
-			 */
-			//do_action( 'woocommerce_archive_description' );
-		?>
+        <?php if ( have_posts() ) : ?>
+            
+            <?php woocommerce_catalog_ordering(); ?>
         
-		<?php if ( have_posts() ) : ?>
+            <ul class="tabs products" data-tabs id="example-tabs">
+                <?php 
+                    $panel_id=0;
+                    $panels = "";
+                    while ( have_posts() ) : the_post(); 
+                    $panel_id++;
+                ?>
 
-			<?php woocommerce_catalog_ordering(); ?>
+                    <li class="tabs-title single-product-list-item">
+                        <a href="#panel<?php echo $panel_id ?>"> 
+                            <?php wc_get_template_part( 'content-product-loop', 'main'); ?>
+                        </a>
+                    </li>   
 
-			<?php woocommerce_product_loop_start(); ?>
 
-				<?php woocommerce_product_subcategories(); ?>
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php wc_get_template_part( 'content', 'product' ); ?>
-
-				<?php endwhile; // end of the loop. ?>
-
-			<?php woocommerce_product_loop_end(); ?>
-
+                    <?php ob_start(); ?>
+                        <div class="tabs-panel" id="panel<?php echo $panel_id ?>">
+                            <?php wc_get_template_part( 'content-product-loop', 'panel'); ?>
+                        </div>                
+                    <?php 
+                        $panels = $panels . ob_get_contents();
+                        ob_end_clean();
+                echo $post_length;
+                    ?>
+                    <?php if($panel_id % 4 == 0 ): ?>
+                        <div class="tabs-content" data-tabs-content="example-tabs">
+                            <?php echo $panels; $panels = ""; ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endwhile; // end of the loop. ?>
+                <div class="tabs-content" data-tabs-content="example-tabs">
+                    <?php echo $panels; $panels = ""; ?>
+                </div>
+            </ul>
 			<?php
 				/**
 				 * woocommerce_after_shop_loop hook.
